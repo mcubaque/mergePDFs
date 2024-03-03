@@ -11,7 +11,7 @@ MergePDFs is a small application developed in Python using Flask and JavaScript,
 
 ## Installation
 
-1. Instala las dependencias del proyecto:
+1. Clone this repository on your local machine:
 
    ```bash
    git clone https://github.com/mcubaque/mergePDFs.git
