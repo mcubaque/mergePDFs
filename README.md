@@ -14,36 +14,36 @@ MergePDFs is a small application developed in Python using Flask and JavaScript,
 1. Instala las dependencias del proyecto:
 
    ```bash
-   git clone https://github.com/your-username/MergePDFs.git
+   git clone https://github.com/mcubaque/mergePDFs.git
 
-2. Instala las dependencias del proyecto:
+2. Install the project dependencies:
 
     ```bash
     pip install -r requirements.txt
 
-## Uso
+## Use
 
-1. Ejecuta la aplicación:
+1. Run the application:
 
     ```bash
     python main.py
 
-2. Abre tu navegador web y ve a http://localhost:5000.
+2. Open your web browser and go to http://localhost:5000.
 
-3. Selecciona los archivos PDF que deseas fusionar y haz clic en el botón "Fusionar PDFs".
+3. Select the PDF files you want to merge and click on the 'Merge PDFs' button.
 
-4. ¡Listo! Descarga el archivo PDF fusionado y disfruta de tu nuevo documento.
+4. "Download the merged PDF file and enjoy your new document."
 
-## Contribuciones
+## Contributions
 
-Las contribuciones son bienvenidas. Si quieres mejorar MergePDFs, puedes seguir estos pasos:
+Contributions are welcome. If you want to improve MergePDFs, you can follow these steps:
 
-1. Haz un fork del repositorio.
-2. Crea una nueva rama (git checkout -b feature-improvement).
-3. Realiza tus cambios y haz commit (git commit -am 'Add an improvement').
-4. Haz push a la rama (git push origin feature-improvement).
-5. Abre un Pull Request.
+1. Fork the repository.
+2. Create a new branch (git checkout -b feature-improvement).
+3. Make your changes and commit them (git commit -am 'Add an improvement').
+4. Push to the branch (git push origin feature-improvement).
+5. Open a Pull Request.
 
-## Licencia
+## License
 
-Este proyecto está licenciado bajo la Licencia MIT. Para obtener más información, consulta el archivo [LICENSE](https://github.com/mcubaque/mergePDFs/blob/master/LICENSE.md).
+This project is licensed under the MIT License. For more information, please see the file [LICENSE](https://github.com/mcubaque/mergePDFs/blob/master/LICENSE.md).
