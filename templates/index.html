@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fusionar PDFs</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style>
+    body {
+      background-color: #f8f9fa;
+      padding-top: 50px;
+    }
+    .container {
+      max-width: 600px;
+      margin: auto;
+    }
+    .btn-primary {
+      background-color: #007bff;
+      border-color: #007bff;
+    }
+    .btn-primary:hover {
+      background-color: #0069d9;
+      border-color: #0062cc;
+    }
+  </style>
+<body>
+    <div class="container">
+      <h1 class="text-center mb-4">Fusionar PDFs</h1>
+      <form id="pdfForm" method="post" enctype="multipart/form-data">
+        <div id="pdfInputs">
+          <div class="form-group">
+            <label for="file1">Seleccionar archivo PDF:</label>
+            <input type="file" class="form-control-file" name="pdfFiles[]" accept=".pdf" required>
+          </div>
+        </div>
+        <button type="button" class="btn btn-primary mb-3" id="addPdfBtn">Agregar PDF</button>
+        <button type="button" class="btn btn-primary btn-block" id="mergePdfsBtn">Fusionar PDFs</button>
+      </form>
+      <div id="output" class="mt-4" style="display: none;">
+        <h4>PDF fusionado:</h4>
+        <iframe id="pdfViewer" style="width:100%; height:600px;"></iframe>
+      </div>
+    </div>
+  
+    <script>
+      document.getElementById('mergePdfsBtn').addEventListener('click', function() {
+        var formData = new FormData(document.getElementById('pdfForm'));
+        fetch('/merge_pdfs', {
+          method: 'POST',
+          body: formData
+        })
+        .then(response => response.blob())
+        .then(blob => {
+          var url = window.URL.createObjectURL(blob);
+          var a = document.createElement('a');
+          a.href = url;
+          a.download = 'merged_pdf.pdf';
+          document.body.appendChild(a);
+          a.click();
+          window.URL.revokeObjectURL(url);
+        })
+        .catch(error => console.error('Error:', error));
+      });
+
+      document.getElementById('addPdfBtn').addEventListener('click', function() {
+        var numInputs = document.querySelectorAll('#pdfInputs .form-group').length + 1;
+        var newInput = document.createElement('div');
+        newInput.className = 'form-group';
+        newInput.innerHTML = '<label for="file' + numInputs + '">Seleccionar archivo PDF:</label>' +
+                             '<input type="file" class="form-control-file" name="pdfFiles[]" accept=".pdf" required>';
+        document.getElementById('pdfInputs').appendChild(newInput);
+      });
+    </script>
+</body>
+</html>
